@@ -10,6 +10,7 @@ fi
 if [ -z "$2" ]; then
   echo "There needs to be a filename eg. ./bucket my-bucket-name filename"
   exit 1
+fi
 
 BUCKET_NAME=$1
 FILENAME=$2
