@@ -22,14 +22,14 @@ puts "number_of_files: #{number_of_files}"
 number_of_files.times.each do |i|
     puts "i: #{i}"
     filename = "file_#{i}.txt"
-    output_path = "/tmp#{filename}"
+    output_path = "/tmp/#{filename}"
 
     File.open(output_path, "w") do |f|
-        f.write securerandom.uuid
+        f.write(SecureRandom.uuid)
     end
     
     File.open(output_path, 'rb') do |f|
-        s3.put_object(
+        client.put_object(
             bucket: bucket_name,
             key: filename,
             body: f
